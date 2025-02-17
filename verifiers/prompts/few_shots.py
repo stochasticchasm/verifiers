@@ -26,6 +26,41 @@ DOUBLECHECK_FEW_SHOT = [
     ]
 ]
 
+B64_FEW_SHOT = [
+    [
+        {'role': 'user', 'content': 'c2xpbWU='},
+        {'role': 'assistant', 'content': math_parser.format(
+            reasoning="""
+            Alright, let's decode this step by step. The given base64 string is "c2xpbWU=". First, base64 encoding works in chunks of 4 characters, each representing 6 bits. The equals sign "=" at the end indicates padding, meaning the original data wasn't a multiple of 3 bytes.
+
+Now, decoding begins by converting each base64 character to its corresponding 6-bit binary value:
+
+c → 011100
+2 → 110110
+x → 101101
+p → 100000
+b → 011011
+W → 010110
+U → 010100
+= (padding, ignored)
+Now, grouping these bits into 8-bit chunks:
+
+01110011 (115, which is 's' in ASCII)
+01101001 (108, which is 'l' in ASCII)
+01101101 (105, which is 'i' in ASCII)
+01100101 (109, which is 'm' in ASCII)
+So, decoding "c2xpbWU=" gives "slime".
+            """,
+            answer='slime'
+        )},
+        {'role': 'user', 'content': 'Are you sure?'},
+        {'role': 'assistant', 'content': math_parser.format(
+            reasoning='Yes, after checking walking throught the base64 decoding process, the decoded string is "slime".',
+            answer='slime'
+        )}
+    ]
+]
+
 code_parser = XMLParser(fields=["reasoning", ("code", "answer")])
 output_parser = XMLParser(fields=["output"])
 CODE_FEW_SHOT = [
