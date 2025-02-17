@@ -9,6 +9,18 @@ Respond in the following format, using careful step-by-step reasoning.
 </answer>
 """
 
+B64_PROMPT = """
+Given a base64 encoded string, decode it into an English string. Hint: the correct answer will be a five-letter word.
+Respond in the following format, using careful step-by-step reasoning.
+
+<reasoning>
+...
+</reasoning>
+<answer>
+...
+</answer>
+"""
+
 CODE_PROMPT = """\
 Given a math problem, use step-by-step reasoning and code execution to solve the problem. 
 
