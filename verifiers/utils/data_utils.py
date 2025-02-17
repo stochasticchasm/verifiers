@@ -65,7 +65,7 @@ def preprocess_dataset(dataset_name: str = "gsm8k",
         })
         return dataset
     elif dataset_name == "b64-single":
-        dataset: Dataset = load_dataset("b64-wordle-single")[split] # type: ignore
+        dataset: Dataset = load_dataset("stochasm/b64-wordle-single")[split] # type: ignore
         dataset = dataset.map(lambda x: {
             "prompt": format_prompt(x["encoded"], system_prompt, few_shot, fewshot_prob),
             "answer": x["decoded"]
