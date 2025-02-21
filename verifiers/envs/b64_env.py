@@ -31,6 +31,7 @@ class B64Env(MultiStepEnv):
             few_shot=few_shot
         )
         self.rubric = MathRubric()
+        self.max_steps = max_steps
 
     def get_rubric(self, **kwargs: Any) -> List[RewardFunc]:
         return self.rubric.get_reward_funcs()
