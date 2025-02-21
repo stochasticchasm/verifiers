@@ -31,25 +31,34 @@ B64_FEW_SHOT = [
         {'role': 'user', 'content': 'c2xpbWU='},
         {'role': 'assistant', 'content': math_parser.format(
             reasoning="""
-            Alright, let's decode this step by step. The given base64 string is "c2xpbWU=". First, base64 encoding works in chunks of 4 characters, each representing 6 bits. The equals sign "=" at the end indicates padding, meaning the original data wasn't a multiple of 3 bytes.
+Let me decode this step by step. The given base64 string is "c2xpbWU=".
 
-Now, decoding begins by converting each base64 character to its corresponding 6-bit binary value:
+We'll separate the input into 4-character groups:
+Group 1: "c2xp"
+Group 2: "bWU="
 
-c → 011100
-2 → 110110
-x → 101101
-p → 100000
-b → 011011
-W → 010110
-U → 010100
-= (padding, ignored)
-Now, grouping these bits into 8-bit chunks:
+For Group 1 "c2xp", converting each character:
+c (28) → 011100
+2 (54) → 110110 
+x (49) → 110001
+p (41) → 101001
 
-01110011 (115, which is 's' in ASCII)
-01101001 (108, which is 'l' in ASCII)
-01101101 (105, which is 'i' in ASCII)
-01100101 (109, which is 'm' in ASCII)
-So, decoding "c2xpbWU=" gives "slime".
+Concatenating and regrouping into 8-bit chunks:
+01110011 → decimal 115 → 's'
+01101100 → decimal 108 → 'l'
+01101001 → decimal 105 → 'i'
+
+For Group 2 "bWU=":
+b (27) → 011011
+W (22) → 010110
+U (20) → 010100
+= → padding
+
+Concatenating and regrouping into 8-bit chunks:
+01101101 → decimal 109 → 'm'
+01100101 → decimal 101 → 'e'
+
+Combining both decoded chunks "sli" + "me" gives us "slime".
             """,
             answer='slime'
         )},

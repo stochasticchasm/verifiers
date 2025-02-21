@@ -10,7 +10,7 @@ Respond in the following format, using careful step-by-step reasoning.
 """
 
 B64_PROMPT = """
-Given a base64 encoded string, decode it into an English string. Hint: the correct answer will be a five-letter word.
+When given a base64 encoded string, decode it. The correct answer will be a five-letter word.
 Respond in the following format, using careful step-by-step reasoning.
 
 <reasoning>
