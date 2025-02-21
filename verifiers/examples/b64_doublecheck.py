@@ -36,6 +36,6 @@ trainer = GRPOTrainer(
     env=vf_env,
     args=training_args,
     train_dataset=dataset,
-    lora_config=lora_config,
+    peft_config=lora_config,
 )
 trainer.train()
