@@ -6,5 +6,5 @@ from .doublecheck_env import DoubleCheckEnv
 from .code_env import CodeEnv
 from .math_env import MathEnv
 from .tool_env import ToolEnv
-
-__all__ = ['Environment', 'SimpleEnv', 'MultiStepEnv', 'DoubleCheckEnv', 'CodeEnv', 'MathEnv', 'ToolEnv']
+from .b64_env import B64Env
+__all__ = ['Environment', 'SimpleEnv', 'MultiStepEnv', 'DoubleCheckEnv', 'CodeEnv', 'MathEnv', 'ToolEnv', 'B64Env']
