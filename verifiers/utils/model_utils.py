@@ -71,7 +71,7 @@ def get_model(model_name: str, use_liger: bool = True, model_kwargs: Union[Dict[
         from liger_kernel.transformers import AutoLigerKernelForCausalLM # type: ignore
         return AutoLigerKernelForCausalLM.from_pretrained(model_name, **model_kwargs)
     else:
-        return AutoModelForCausalLM.from_pretrained(model_name, **model_kwargs)
+        return AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, **model_kwargs)
     
 def get_tokenizer(model_name: str) -> Any:
     tokenizer = AutoTokenizer.from_pretrained(model_name)
